@@ -106,7 +106,7 @@ def ago(ts):
 src_pill = '<span class="pill wn">Demo data</span>' if meta["source"] == "demo" else '<span class="pill ok">Live NPS data</span>'
 st.markdown(f'<div class="hdr"><div class="brand"><div class="logo">&#9650;</div><div><b>ParkPulse</b><span>National Parks Intelligence System</span></div></div>'
             f'<div>{src_pill}<span class="pill ok">Weather updated {ago(meta["weather_updated"])}</span><span class="pill ok">Last run {ago(meta["last_run"])}</span></div></div>', unsafe_allow_html=True)
-tabs = st.tabs(["Home", "Explorer", "Trip planner", "Compare", "Dashboards", "Ask", "Automation", "Data health", "Integrations"])
+tabs = st.tabs(["Home", "Explorer", "Trip planner", "Compare", "Dashboards", "Ask", "Automation", "Data health"])
 
 with tabs[0]:
     tot = q("SELECT COUNT(*) n FROM park").n[0]; last = q(f"SELECT year, SUM({V}) v FROM stats s GROUP BY year ORDER BY year DESC LIMIT 2")
